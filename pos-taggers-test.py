@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import importlib
 import nltk.corpus
 import os
@@ -6,6 +8,7 @@ corpus = dir(nltk.corpus)
 corpus = dir(nltk.corpus)
 
 #corpus = os.listdir( nltk.data.find("corpora") )
+corpus = ['mac_morpho']
 
 for c in corpus:
 	try:
