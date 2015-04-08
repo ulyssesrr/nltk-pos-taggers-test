@@ -1,9 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+# vim:fileencoding=utf-8
 
 import importlib
 import os
 
 from mac_morpho import OriginalMacMorphoCorpusReader
+
+from u_tagger import UTagger
 
 import nltk.corpus
 
@@ -40,8 +43,9 @@ for c in corpus:
 		tsents_train = tsents[train_index].tolist()
 		tsents_test = tsents[test_index].tolist()
 		
+		tagger0 = UTagger(tsents_train)
 		acc = tagger0.evaluate(tsents_test)
-		print("|-Majority: %.04f" % (acc))
+		print("|-UTagger: %.04f" % (acc))
 		
 		tagger1 = nltk.UnigramTagger(tsents_train, backoff=tagger0)
 		acc = tagger1.evaluate(tsents_test)

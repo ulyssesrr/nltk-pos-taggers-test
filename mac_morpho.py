@@ -1,3 +1,5 @@
+# vim:fileencoding=utf-8
+
 class OriginalMacMorphoCorpusReader:
 
 	def __init__(self):
@@ -6,7 +8,7 @@ class OriginalMacMorphoCorpusReader:
 		
 	
 	def read(self, fname):
-		with open(fname) as f:
+		with open(fname, encoding="utf-8") as f:
 			content = f.readlines()
 		#print(content[:10])
 		#print(list(map(lambda line : list(map(lambda tagged_word : tagged_word.split('_'), line.split())), content[:10])))
