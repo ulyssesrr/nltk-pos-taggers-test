@@ -37,13 +37,14 @@ for c in corpus:
 	kf = KFold(len_tsents, n_folds=5)
 	
 	#tag_fd = nltk.FreqDist(tag for (word, tag) in twords)
-	tagger0 = nltk.DefaultTagger('ZZZ')
+	t0 = nltk.DefaultTagger('ZZZ')
 	for k, (train_index, test_index) in enumerate(kf):
 		print("+ WK: %d" % (k))
 		tsents_train = tsents[train_index].tolist()
 		tsents_test = tsents[test_index].tolist()
 		
 		tagger0 = UTagger(tsents_train)
+		tagger0._taggers = [t0]
 		acc = tagger0.evaluate(tsents_test)
 		print("|-UTagger: %.04f" % (acc))
 		

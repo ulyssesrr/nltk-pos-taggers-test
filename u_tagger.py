@@ -15,7 +15,7 @@ class UTagger:
 
 	def __init__(self, train):
 		#self.count_vect = CountVectorizer()
-		self.n_features = 2**7
+		self.n_features = 2**14
 		self.vectorizer = HashingVectorizer(decode_error='ignore', n_features=self.n_features, norm=None, binary=True, dtype=np.int32, non_negative=True)
 		self.clf = BernoulliNB()
 		self.stemmer = nltk.stem.RSLPStemmer()
